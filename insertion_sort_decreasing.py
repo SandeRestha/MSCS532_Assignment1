@@ -1,34 +1,53 @@
 """
 MSCS532 - Assignment 1
-Insertion Sort (Monotonically Decreasing Order)
+Insertion Sort Algorithm (Monotonically Decreasing Order)
+
+This program implements the Insertion Sort algorithm
+and sorts numbers from largest to smallest.
 """
 
 def insertion_sort_decreasing(arr):
     """
-    Sorts an array in monotonically decreasing order
-    using the Insertion Sort algorithm.
+    Sort a list in monotonically decreasing order
+    using the insertion sort algorithm.
+
+    Parameters:
+    arr (list): list of numbers
+
+    Returns:
+    list: sorted list (largest to smallest)
     """
 
-    # Traverse array starting from the second element
+    # Loop through array starting from second element
     for i in range(1, len(arr)):
 
-        # Element to be inserted into sorted section
+        # Store the current value to insert
         key = arr[i]
 
-        # Index of the previous element
+        # Compare with previous elements
         j = i - 1
 
-        # Move smaller elements one position to the right
+        # Shift elements smaller than key to the right
         while j >= 0 and arr[j] < key:
             arr[j + 1] = arr[j]
             j -= 1
 
-        # Insert key at correct location
+        # Insert key into correct position
         arr[j + 1] = key
 
     return arr
 
 
 if __name__ == "__main__":
+
+    # Example list of numbers
     numbers = [31, 41, 59, 26, 41, 58]
-    print("Original Array:", numbers)
+
+    print("Original Array:")
+    print(numbers)
+
+    # Perform insertion sort
+    sorted_numbers = insertion_sort_decreasing(numbers)
+
+    print("\nSorted Array (Monotonically Decreasing):")
+    print(sorted_numbers)
